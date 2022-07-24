@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title>
+    <link rel="stylesheet" href="css/book.css">
+    <style>
+        body{
+    background: url('homeimages/finalpage.svg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    width: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: rgb(44, 44, 104);
+}
+
+    </style>
+</head>
+<body>
+    <div class="illustrator"></div>
+   <div class="mcontainer ">
+       <p>The total cost of booking is ₹<%=amt %></p>
+       <button id="paybtn">Pay</button>
+   </div> 
+   <div class="popup mcontainer-hide">
+       <p>The rooms have been successfully booked</p>
+       <button id="dbtn" onclick = "location.href='/'">Done</button>
+        
+   </div>
+   <div class="overlay mcontainer-hide"></div>
+</body>
+<script>
+    let pbtn = document.querySelector("#paybtn");
+    pbtn.addEventListener("click" ,() => {
+        let mcnt = document.querySelector(".mcontainer");
+        mcnt.classList.add("mcontainer-hide");
+        document.querySelector(".overlay").classList.remove("mcontainer-hide");
+        let pcnt = document.querySelector(".popup");
+        pcnt.classList.remove("mcontainer-hide");
+    })
+</script>
+</html>
