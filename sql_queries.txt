@@ -1,0 +1,39 @@
+CREATE DATABASE Hotel_Management;
+USE Hotel_Management;
+show tables;
+
+********************************
+
+CREATE TABLE Hotel_Table (Hotel_ID integer NOT NULL AUTO_INCREMENT,
+			  HName varchar(100), address varchar(150),
+                          Hdesc varchar(200), PRIMARY KEY(Hotel_ID));
+desc hotel_Table;	
+
+*********************************
+
+CREATE TABLE cust_login (email varchar(50), password varchar(15), name varchar(50), PRIMARY KEY (email));
+
+desc cust_login;
+
+*********************************
+
+CREATE TABLE cust_tkt (ticketID integer unsigned AUTO_INCREMENT, cus_email varchar(50), amount float(20),
+					   PRIMARY KEY(ticketID));
+
+desc cust_tkt;
+
+*********************************
+
+CREATE TABLE ticket (ticketID integer unsigned, hotelID integer, room_num integer, checkinDate date, checkoutDate date,
+					 FOREIGN KEY (ticketID) REFERENCES cust_tkt (ticketID), 
+					 FOREIGN KEY (hotelID) REFERENCES Hotel_Table (Hotel_ID));
+
+desc ticket;
+
+***********************************
+CREATE TABLE hotel_img ( Hotel_ID integer auto_increment , imgsrc TEXT , PRIMARY KEY(Hotel_ID)); 
+
+desc hotel_img;
+
+***********************************
+
