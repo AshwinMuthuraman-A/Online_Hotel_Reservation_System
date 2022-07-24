@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/search.css">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+ 
+    <title>Available hotels</title>
+</head>
+<body>
+    <div class="nav_bar">
+        <% if(isloggedIn) { %>
+                <div class="user_space">
+               <div class="dates">
+                   <p id ="checkin"> CheckinDate : <%= chDate.in %>
+                    </p>
+                    <p> CheckoutDate : <%= chDate.out %>
+                    </p>
+               </div>
+            <p id="uemail"><span style="color:black;">Logged in as</span> <%= userData[0].email %>
+                </p>
+                </div>
+    </div>
+    <div class="mh">Search results for <%= srch %></div>
+    <div class="hcontainer">
+           <% } if(hotelsData.length!=0){ var i=0; hotelsData.forEach(function(data){ %>
+                <div class="hcard">
+                    <button type="button" class="btn btn-primary" id="selectbtn" data-mdb-ripple-color="dark" >Select</button>
+                    <div class="details">
+                        <h1 class="hname">
+                            <%= data.HName %>
+                        </h1>
+                        <i class = "fa fa-map-marker" style="color:rgb(33, 33, 120)"></i>
+                        <p class="haddr" style="color:rgb(34, 63, 209); display: inline-block;">
+                            <%= data.address %>
+                        </p>
+                        <p>
+                            <%= data.Hdesc %>
+                        </p>
+                        <p style="display: none" id="hid"><%= data.Hotel_ID%></p>
+                        <p style="display: none" id="imgid"> <%= i %></p>
+                        <% let imgSrcVal=imageData[i].imgsrc; imgSrcVal.replace('/public' ,''); %>
+                    </div>
+                    <img src="<%=imgSrcVal.replace('/public' , '');%>" alt="" width="200px" id="himg">
+
+                </div>
+                <% i++; }) %>
+                    <% } else{ %>
+                        <% } %>
+    </div>
+    <form action="hdetails" style="display: none" id="form" method="POST">
+        <input type="text" name="hID" id="hid">
+        <input type="text" name="imgPath" id="imgPath">
+        <input type="text" name="hotelName" id="hotelName">
+        <input type="text" name="hotelAddress" id="hotelAddress">
+    </form>
+</body>
+<script defer>
+    let hotels = document.querySelectorAll('.hcard');
+    let form = document.querySelector('#form');
+    hotels.forEach((hotel) => {
+        hotel.addEventListener("click", () => {
+            let hid = hotel.querySelector("#hid").innerHTML;
+            let val = hotel.querySelector("#imgid").innerHTML;
+            let input1 = form.querySelector('#hid');
+            input1.value = hid;
+            let input2 = form.querySelector("#imgPath");
+            input2.value = hotel.querySelector("#himg").getAttribute("src");
+            form.querySelector("#hotelName").value = hotel.querySelector('.hname').innerHTML;
+            form.querySelector("#hotelAddress").value = hotel.querySelector('.haddr').innerHTML;
+            form.submit();
+        })
+    })
+</script>
+
+</html>

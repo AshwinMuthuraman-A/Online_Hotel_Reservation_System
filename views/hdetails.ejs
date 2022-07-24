@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/rooms.css">
+    <title> Rooms Display </title>
+</head>
+
+<body>
+    <div class="nav_bar">
+        <% if(isloggedIn) { %>
+            <div class="user_space">
+                <div class="dates">
+                    <p id="checkin"> CheckinDate : <%= chDate.in %>
+                    </p>
+                    <p> CheckoutDate : <%= chDate.out %>
+                    </p>
+                </div>
+                <p id="uemail"><span style="color:black;">Logged in as</span>
+                    <%= userData[0].email %>
+                </p>
+            </div>
+    </div>
+
+    <div class="hcontainer">
+        <div class="hotel_details">
+            <img src="<%= hotelImagePath%>" id="hotelImage">
+            <p><%= hotelName %></p>
+            <p><%= hotelAddress %></p>
+        </div>
+        <main>
+        </main>
+        <div class="room_container">
+            <% } final_result.forEach(function(data){ let i=0 %>
+                <div class="hcard">
+                    <h1 id="roomType"><%=data.Room_type %></h1>
+                    <p class="cost">₹<%=data.Cost %></p>
+                    <p id="hid" style="display:none"><%=hotelDataID%></p>
+                    <form action="roomavail" id="form" method="POST" style="display:none">
+                        <input type="text" name="hID" id="hid">
+                        <input type="text" name="room_type" id="roomType">
+                        <input type="text" name="hotelName" id="hotelName">
+                    </form>
+                </div>
+                <% i++;}) %>
+        </div>
+    </div>
+</body>
+<script defer>
+    let roomtypes = document.querySelectorAll('.hcard');
+    let form = document.querySelector('#form');
+    roomtypes.forEach((room) => {
+        room.addEventListener("click", () => {
+            let hid = room.querySelector("#hid").innerText;
+            let input1 = form.querySelector('#hid');
+            let roomtype = room.querySelector("#roomType").innerText;
+            let input2 = form.querySelector('#roomType');
+            let input3 = form.querySelector('#hotelName');
+            input3.value = '<%= hotelName %>';
+            input1.value = hid;
+            input2.value = roomtype;
+            form.submit();
+        })
+    })
+</script>
+
+</html>

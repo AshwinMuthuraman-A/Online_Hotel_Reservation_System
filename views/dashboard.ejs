@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<style>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0px;
+        padding: 0px;
+
+/* background: url('./../homeimages/dahboardimg.svg'); */
+background-repeat: no-repeat;
+background-size: contain;
+background-color: aqua;
+background-position: center;
+    }
+
+    .userdetails {
+        /* background: linear-gradient(270deg, rgba(203, 156, 242, 1), rgba(203, 156, 242, 0.5)); */
+/* background: linear-gradient(90deg, hsla(152, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%); */
+background-color: white;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: fit-content;
+        padding: 10px 1rem 5px 1rem;
+        margin-left: 2rem;
+        border-radius: 10px;
+        margin-inline: auto;
+    }
+
+    #dettable {
+        margin-inline: auto;
+        margin-block: 5rem;
+    }
+
+
+    td {
+        border: none;
+        text-align: center;
+        margin-block: 10px;
+    }
+    .mcontainer{
+        width:90%;
+        margin-inline:auto;
+        margin-block:3rem;
+    }
+    .row{
+        text-align: center;
+        padding:0.5rem;
+        margin:0.5rem 10px;
+        border-radius: 10px;
+        background-color: rgb(246, 246, 246);
+        box-shadow: 0 0 10px black;
+
+    }
+    .inner-row{
+        display: grid;
+        grid-template-columns: 100px 1fr 100px 1fr 1fr;
+    }
+    .headings{
+        font-weight: bold;
+    }
+</style>
+
+<body>
+        <h2 style="text-align: center; ">Dashboard
+        </h2>
+        <div class="userdetails">
+            <h3 >User name: <%=dataVar[0].name %>
+            </h3>
+            <h3 >User email: <%=dataVar[0].email %>
+            </h3>
+        </div>
+        <div class="mcontainer">
+            <div class="headings row">
+                <div class="inner-row">
+                    <p>Ticket ID</p>
+                    <p>Hotel Name</p>
+                    <p>Number of rooms booked</p>
+                    <p>Check-in Date</p>
+                    <p>Check-out Date</p>
+                </div>
+                </div>
+        <div class="datadet">
+                <% if(user_details.length!=0){ user_details.forEach(function(data){ %>
+                    <div class="row">
+                <div class="inner-row">
+                        <p><%=data.ticketID%></p>
+                        <p><%=data.HName%></p>
+                        <p><%=data.roomcount%></p>
+                        <p><%=data.checkinDate.toDateString()%></p>
+                        <p><%=data.checkoutDate.toDateString()%></p>
+                    </div>
+            </div>
+                    <% }) } else{ %>
+                        <tr>
+                            <td colspan="7">No Data Found</td>
+                        </tr>
+                        <% } %>
+            </table>
+        </div>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/signup.css">
+    <title>Sign Up form</title>
+</head>
+<body>
+    <div class="register-wrapper">
+        <center>
+            <div class="register-block">
+            <h4 class="register-title">Welcome</h4>
+            <p class = "sm">Let's sign you up!</p>
+        
+        <form action="/custregister_submit/cust_create" method="POST">
+            <input type="text" name="uname" placeholder="Name" autocomplete="off">
+            <input type="email" name="email" placeholder="Email address" autocomplete="off">
+            <input type="password" name="password" placeholder="Password" autocomplete="off">
+            <!-- <input type="date" name="dob" placeholder="Date-of-birth"> -->
+            <div class="btn_container">
+                <input type="submit" value="Sign up"/>
+            </div>
+        </form>
+        <button class = "button" onclick="location.href='/'"><span>Back to homepage</span></button>
+        </div>
+        </center>
+
+    </div>
+</body>
+</html>

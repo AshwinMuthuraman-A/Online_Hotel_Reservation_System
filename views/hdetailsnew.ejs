@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/roombook.css">
+    <title> Rooms Book </title>
+    <style>
+        body{
+            background: url('/homeimages/hdetailsnewbg.jpg');
+            background-position: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+      <div class="mcontainer" id = "container">
+          <form action="bookroom" method="POST">
+    <div class="hoteldetails">
+        <p><%=hotelName%></p>
+        <p><%=roomType%></p>
+    </div>
+        <%if(final_result.length==0) {%>
+          <p class="PULSE"> No rooms available !!! </p>
+        <%}else {%>
+          <p class="PULSE"> Hurry up , only <%= final_result.length %> rooms are available</p>
+              <input type="number" name="numofRooms" id="" placeholder="Enter number of rooms" autocomplete="off">
+              <input type="number" name="hotelID" id=""  style="display: none" value=<%= hotelDataID %>>
+              <input type="number" name="roomCost" id="" style="display: none" value="<%= final_result[0].cost %>">
+              <% for(let i=0;i < final_result.length; ++i) {
+                  let rnm = `rnm${i}`%>
+                <input type="number" style="display: none" name="<%= rnm %>" value="<%= final_result[i].room_num %>" >
+                <% } %>
+              <input type="submit" value="Book">
+              <% } %>
+          </form>
+      </div>
+</body>
+</html>
