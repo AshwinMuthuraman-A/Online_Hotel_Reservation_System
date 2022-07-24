@@ -1,0 +1,54 @@
+* , *::before ,*::after{
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    width: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: rgb(44, 44, 104);
+}
+.mcontainer{
+    background-color: aliceblue;
+    width:fit-content;
+    padding-block:1em;
+    padding-inline:3rem;
+    border-radius: 10px;
+    text-align: center;
+}
+#paybtn{
+    padding:1rem;
+    background-color: rgb(29, 29, 51);
+    color: white;
+    border-radius: 10px;
+}
+.mcontainer-hide{
+    display: none;
+}
+.popup {
+    padding:4rem;
+    background-color: white;
+    border-radius: 20px;
+    z-index: 2;
+}
+.popup::after{
+    content:'';
+    background-color: brown;
+    height:200px;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+  cursor: pointer;
+}
