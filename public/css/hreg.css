@@ -1,0 +1,124 @@
+*,*::after , *::before {
+    box-sizing: border-box;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    /* background-color: #78E3FD; */
+    background-color: #7D53DE;
+     /* background: linear-gradient(120deg, rgb(230, 100, 101), rgb(145, 152, 229)) fixed;  */
+}
+.mh {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3rem;
+}
+.form_container {
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
+    }
+.room_btns {
+    margin-top: 1rem;
+    width: 70%;
+}
+.form_container > form {
+    /* background-color: #D1F5FF;  */
+
+    background-color: #c3f3ff;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-inline: auto;
+    padding-inline: 3rem;
+    padding-block: 2rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-image: initial;
+    border-radius: 20px;
+}
+.frow1 {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0px;
+}
+
+#hdesc {
+    display: inline-block;
+    height: 100px;
+    width: 70%;
+    margin-top: 4vh;
+    flex: 1 1 100%;
+}
+.room_input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+.room_input_container input {
+    display: block;
+    margin-right: 1rem;
+    flex: 1 1 100%;
+}
+.room_btns {
+    margin-top: 1rem;
+    width: 70%;
+}
+.btn-outline-primary {
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+    border-image: initial;
+}
+#register {
+    width: fit-content;
+}
+.col1{
+    display: flex;
+    flex-direction: column;
+    flex : 1 1 70%;
+    padding:2rem;
+}
+.col1 input {
+    height: 50px;
+    flex-direction: row;
+    border-radius: 10px;
+    margin-bottom:1rem;
+}
+.flexcn1 {
+    display: flex;
+    flex-direction: row;
+}
+#hdesc {
+    margin-left: 1rem;
+    flex: 1 1 30%;
+    border-radius: 10px;
+    height:200px;
+}
+.imguploadbtn{
+    width: fit-content;
+    padding:0.25rem;
+    border-radius: 10px;
+}
+#getFile{
+    width: fit-content;
+    border: none;
+    border-radius: 0px;
+}
+.infotxt {
+    font-size: 1.25rem;
+}
+.room_input > input {
+    padding:0.25rem;
+    border-radius: 10px;;
+}
+.btn-outline-primary , .bth_btn , #register{
+    background-color: #0E1C36;
+    color: white;
+    padding:0.75rem;
+    border-radius: 10px;    
+}

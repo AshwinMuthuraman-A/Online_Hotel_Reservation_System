@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Joan&family=Open+Sans:wght@300&family=Raleway:ital,wght@0,200;0,300;1,300&family=Roboto:wght@300&display=swap');
+*,*::before , *::after {
+    box-sizing: border-box;
+}
+body {
+    padding:0px;
+    margin:0px;
+}
+.nav_bar{
+    background-color: rgb(37, 37, 147);
+    padding:5px;
+}
+.dates {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    height: fit-content;
+    padding:0.5rem;
+    margin-block: auto;
+}
+.dates > p {
+    margin: 0px;
+}
+#checkin{
+    border-right: 1px solid black;
+}
+#uemail{
+    background-color: white;
+    padding:0.5rem;
+    margin-block:auto;
+    border-radius: 10px;
+}
+.user_space {
+    width: fit-content;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    color:rgb(52, 52, 176);
+}
+.user_space p{
+    margin-left: 10px;
+}
+.hcontainer{
+    display: flex;
+    flex-direction: row;
+}
+.hotel_details{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 40%;
+    background-color: aliceblue;
+    padding:2rem;
+    margin:2rem;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px black;
+}
+.room_container{
+    font-family: 'Roboto';
+    margin-top:3rem;
+    flex: 1 1 60%;
+    height: fit-content;
+    padding:2rem;
+    border:2px solid rgb(0, 0, 0);
+    box-shadow: 0 0 10px black;
+    border-radius: 20px;
+    
+}
+.room_container:hover {
+    cursor: pointer;
+}
+.hcard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-block:2rem;
+    background-color: rgb(224, 231, 237);
+    border-radius: 10px;
+
+}
+
+.cost{
+    font-size: 2rem;
+}
+#hotelImage{
+    object-fit: contain;
+    width:400px;
+    border-radius: 10px;
+}
